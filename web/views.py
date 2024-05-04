@@ -24,4 +24,4 @@ def contact(request):
     return render(request, "contact.html",{'form':form})
 
 def contact_exitoso(request):
-    return render(request, 'contact.html', {})
+    return render(request, 'contact_exitoso.html', {})
