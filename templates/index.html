@@ -1,19 +1,31 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
+
 {% block 'content' %}
-<div class="row">
-  {% for flan in flanes %}
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card" style="width: 18rem;">
-        <img src="{{flan.image_url}}" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">{{flan.name}}</h5>
-            <p class="card-text">{{flan.description}}</p>
-            <a href="#" class="btn btn-primary">Ir</a>
+
+<section class="container mx-auto pt-5">
+  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
+      {% for flan in flans %}
+      <div class="col">
+        <div class="card h-100">
+          <img src="https://www.google.com/imgres?q=flan%20caramelo&imgurl=https%3A%2F%2Fdgari.com%2Fwp-content%2Fuploads%2F2022%2F02%2FFlan-de-vainilla-con-caramelo.png&imgrefurl=https%3A%2F%2Fdgari.com%2Fflan-de-vainil" height="200px" class="card-img-top" alt="{{ flan.slug }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ flan.name }}</h5>
+            <p class="card-text text-justify">
+                {% if flan.description|length > 100 %}
+                    {{ flan.description|slice:":100" }}... <a href="">descripcion</a>
+                {% else %}
+                    {{ flan.description }}
+                {% endif %}
+            </p>
+        </div>
+          <div class="card-footer">
+            <small class="text-body-secondary">Last updated 3 mins ago</small>
+          </div>
         </div>
       </div>
-    </div>
-  {% endfor %}
-</div>
+    {% endfor %}  
+  </div>
+</section>
 {% endblock 'content' %}

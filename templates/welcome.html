@@ -1,8 +1,30 @@
 {% extends 'base.html' %}
 
+
+
 {% block 'content' %}
-<div style="background-color: yellow;">
-    <h1>Welcome to OnlyFlans! | Welcome</h1>
-    <p>OnlyFlans is the best place to find the best flans in the world!</p>
-</div>
+<section class="container mx-auto pt-5">
+  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
+      {% for flan in flan %}
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{ flan.image_url }}" height="200px" class="card-img-top" alt="{{ flan.slug }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ flan.name }}</h5>
+            <p class="card-text text-justify">
+                {% if flan.description|length > 100 %}
+                    {{ flan.description|slice:":100" }}... <a href="">descripcion</a>
+                {% else %}
+                    {{ flan.description }}
+                {% endif %}
+            </p>
+        </div>
+          <div class="card-footer">
+            <small class="text-body-secondary">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+    {% endfor %}  
+  </div>
+</section>
 {% endblock 'content' %}

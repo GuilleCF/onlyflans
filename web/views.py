@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Flan, ContactForm
+from .models import Flan
+from .forms import ContactForm
 
 # Create your views here.
 def index(request):

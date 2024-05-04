@@ -9,9 +9,9 @@ import uuid
 class Flan(models.Model):
     flan_uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=64)
-    description = models.TextField()
-    image_url = models.URLField()
-    slug = models.SlugField()
+    description = models.TextField(blank=False, null=False)
+    image_url = models.URLField(blank=False)
+    slug = models.SlugField(unique=True, max_length=255, blank=True)
     is_private = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
