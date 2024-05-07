@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Flan
 from .forms import ContactForm
 
@@ -26,3 +26,10 @@ def contact(request):
 
 def contact_exitoso(request):
     return render(request, 'contact_exitoso.html', {})
+
+class CustomLoginView(LogoutView):
+    next_page = '/'
+
+def flan_details(request, flan_id):
+    flan = get_object_or_404(Flan, pk = flan_id)
+    return render(request, 'flan_detail', {'flan': flan})

@@ -6,10 +6,10 @@
 
 <section class="container mx-auto pt-5">
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
-      {% for flan in flans %}
+      {% for flan in flan %}
       <div class="col">
         <div class="card h-100">
-          <img src="https://www.google.com/imgres?q=flan%20caramelo&imgurl=https%3A%2F%2Fdgari.com%2Fwp-content%2Fuploads%2F2022%2F02%2FFlan-de-vainilla-con-caramelo.png&imgrefurl=https%3A%2F%2Fdgari.com%2Fflan-de-vainil" height="200px" class="card-img-top" alt="{{ flan.slug }}">
+          <img src="{{ flan.image_url }}" height="200px" class="card-img-top" alt="{{ flan.slug }}">
           <div class="card-body">
             <h5 class="card-title">{{ flan.name }}</h5>
             <p class="card-text text-justify">

@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from web.views import index, about, welcome, contact, contact_exitoso
+from web.views import index, about, welcome, contact, contact_exitoso, flan_details
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,4 +25,6 @@ urlpatterns = [
     path("welcome/", welcome, name="welcome"),
     path("contact/", contact, name="contact"),
     path("contact_exitoso/", contact_exitoso, name='contact_exitoso')
+    path("accounts/", include('django.contrib.auth.urls')),
+    path('flan/<int:flan_id>/', flan_details, name = 'flan_details')
 ]
